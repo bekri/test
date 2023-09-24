@@ -13,7 +13,7 @@ function checkPassword() {
     .then((data) => {
         if (data.isAuthenticated) {
             // Password is correct, redirect to the main page
-            window.location.href = "connect.html"; // Replace with the actual main page URL
+            window.location.href = "data.html"; // Replace with the actual main page URL
         } else {
             // Incorrect password, show an error message
             alert("Incorrect password. Please try again.");
