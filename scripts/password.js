@@ -1,8 +1,9 @@
-// password.js (server-side script)
+// scripts/password.js (server-side script)
 
 const { VercelSecrets } = require('@vercel/secrets');
 
 module.exports = async (req, res) => {
+    // Your function code here
     const secrets = new VercelSecrets();
     const { PASSWORD } = await secrets.extract();
 
