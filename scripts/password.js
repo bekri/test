@@ -1,9 +1,8 @@
-// scripts/password.js (server-side script)
+// api/password.js (server-side script)
 
 const { VercelSecrets } = require('@vercel/secrets');
 
 module.exports = async (req, res) => {
-    // Your function code here
     const secrets = new VercelSecrets();
     const { PASSWORD } = await secrets.extract();
 
@@ -12,12 +11,15 @@ module.exports = async (req, res) => {
         const enteredPassword = body.password;
 
         if (enteredPassword === PASSWORD) {
-            res.json({ accessGranted: true });
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200).json({ accessGranted: true });
         } else {
-            res.json({ accessGranted: false });
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200).json({ accessGranted: false });
         }
     } catch (error) {
         console.error('Error checking password:', error);
+        res.setHeader('Content-Type', 'application/json');
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };

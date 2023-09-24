@@ -6,15 +6,12 @@
 </head>
 <body>
     <script>
-        console.log('Data.html is loaded.'); // Add this line for debugging
-
         // Clear authorization on page load to require password again
         localStorage.removeItem('authorized');
 
         // Redirect to the index.html page if not authorized
         if (!localStorage.getItem('authorized')) {
             // Redirect to the index.html page
-            console.log('Redirecting to index.html...'); // Add this line for debugging
             window.location.href = 'index.html';
         }
     </script>
