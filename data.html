@@ -6,32 +6,7 @@
 </head>
 <body>
 
-    <script>
-        // Check if the user is authorized
-        const authorized = localStorage.getItem('authorized') === 'true';
-
-        if (!authorized) {
-            // Show the password prompt
-            document.getElementById('passwordPrompt').classList.remove('hidden');
-        } else {
-            // Show the protected content
-            document.getElementById('protectedContent').classList.remove('hidden');
-        }
-
-        function checkPassword() {
-            const password = "your_password"; // Replace with your actual password
-            const passwordInput = document.getElementById("passwordInput").value;
-
-            if (passwordInput === password) {
-                // Password is correct, set authorization flag and display content
-                localStorage.setItem('authorized', 'true');
-                document.getElementById('passwordPrompt').classList.add('hidden');
-                document.getElementById('protectedContent').classList.remove('hidden');
-            } else {
-                alert("Incorrect password. Please try again.");
-            }
-        }
-    </script>
+    
 
     <div class="container">
         <table border="1">
@@ -73,6 +48,17 @@
         </table>
     </div>
     <script>
+
+
+// Check if the user is authorized
+const isAuthorized = localStorage.getItem('authorized') === 'true';
+
+if (!isAuthorized) {
+    // If not authorized, redirect to the index.html page
+    window.location.href = 'index.html';
+}
+
+
        function copyToClipboard(element) {
     // Get the password text from the clicked element
     const text = element.textContent;
