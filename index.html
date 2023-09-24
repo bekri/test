@@ -16,23 +16,6 @@
             <button type="button" onclick="checkPassword()">Submit</button>
         </form>
     </div>
-
-    <script>
-// Get the password from the environment variable
-const password = process.env.PASSWORD || ""; // Default value is empty string
-
-function checkPassword() {
-    const passwordInput = document.getElementById("passwordInput").value;
-
-    if (passwordInput === password) {
-        // Password is correct, set authorization flag and redirect
-        localStorage.setItem('authorized', 'true');
-        window.location.href = "data.html";
-    } else {
-        alert("Incorrect password. Please try again.");
-    }
-}
-
-    </script>
+    <script src="etc/engine.js"></script>
 </body>
 </html>
