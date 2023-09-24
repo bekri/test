@@ -30,6 +30,7 @@
             const data = await response.json();
             if (data.accessGranted) {
                 // Password is correct, redirect to the main page
+                console.log('Redirecting to data.html...'); // Add this line for debugging
                 window.location.href = '/data.html';
             } else {
                 // Password is incorrect, display an error message

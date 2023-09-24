@@ -1,0 +1,6 @@
+# .htaccess
+RewriteEngine On
+
+# Remove this line to allow direct access to data.html
+# RewriteCond %{REQUEST_URI} ^/data.html
+# RewriteRule ^(.*)$ /index.html [R,L]
