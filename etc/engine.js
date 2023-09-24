@@ -1,5 +1,10 @@
 function checkPassword() {
-    const password = "@150564220493"; // Replace with your actual password
+    //const password = "@150564220493"; // Replace with your actual password
+    // Retrieve the password from the environment variable
+    const storedPassword = process.env.STORED_PASSWORD || '@1234'; // Default value if not set
+
+// Rest of your code remains the same
+
     const passwordInput = document.getElementById("passwordInput").value;
 
     if (passwordInput === password) {
