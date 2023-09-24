@@ -7,7 +7,7 @@ const storedPassword = process.env.PASSWORD || '1234'; // Default value if not s
 
     const passwordInput = document.getElementById("passwordInput").value;
 
-    if (passwordInput === PASSWORD) {
+    if (passwordInput === storedPassword) {
         // Password is correct, set authorization flag and redirect
         localStorage.setItem('authorized', 'true');
         window.location.href = "data.html"; // Replace with the actual main page URL
