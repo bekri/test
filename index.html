@@ -10,27 +10,22 @@
     <div>
         <h1>Welcome to Bekri's Site</h1>
         <p>Please enter the password to access the site:</p>
-        <form id="passwordForm">
+        <form id="passwordForm" onsubmit="checkPassword(); return false;">
             <input type="password" id="passwordInput" placeholder="Password-Protected" required>
-            <button type="button" onclick="checkPassword()">Submit</button>
+            <button type="submit">Submit</button>
             <p id="errorText" style="color: red;"></p> <!-- Error message placeholder -->
         </form>
     </div>
     <script>
-        // JavaScript code to check the password against the environment variable
-        async function checkPassword() {
+        // JavaScript code to check the password
+        function checkPassword() {
             const enteredPassword = document.getElementById("passwordInput").value;
-            const response = await fetch('/check-password', {
-                method: 'POST',
-                body: JSON.stringify({ password: enteredPassword }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-            const data = await response.json();
-            if (data.accessGranted) {
+            const correctPassword = "1234"; // Replace with your actual password
+
+            if (enteredPassword === correctPassword) {
                 // Password is correct, redirect to the main page
-                window.location.href = '/data.html';
+                console.log('Redirecting to data.html...');
+                window.location.href = 'data.html';
             } else {
                 // Password is incorrect, display an error message
                 document.getElementById("errorText").textContent = 'Incorrect password. Please try again.';
