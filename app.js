@@ -21,6 +21,7 @@ app.post('/check-password', (req, res) => {
     }
 });
 
+
 // Start the server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
