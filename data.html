@@ -5,7 +5,14 @@
     <title>Table Example</title>
 </head>
 <body>
+<script>
+    // Check if the user is authorized
+if (!localStorage.getItem('authorized')) {
+    // Redirect to the index.html page if not authorized
+    window.location.href = 'index.html';
+}
 
+</script>
 
     <div class="container">
         <table border="1">
