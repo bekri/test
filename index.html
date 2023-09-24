@@ -15,6 +15,31 @@
             <button type="button" onclick="checkPassword()">Submit</button>
         </form>
     </div>
-    <script src="scripts/password.js"></script> <!-- Include the external script file -->
+    <script>
+        // JavaScript code to check the password against the environment variable
+        function checkPassword() {
+            const enteredPassword = document.getElementById("passwordInput").value;
+            fetch('/check-password', {
+                method: 'POST',
+                body: JSON.stringify({ password: enteredPassword }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.accessGranted) {
+                    // Password is correct, redirect to the main page
+                    window.location.href = '/main.html';
+                } else {
+                    // Password is incorrect, show an error message
+                    alert('Incorrect password. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error checking password:', error);
+            });
+        }
+    </script>
 </body>
 </html>
