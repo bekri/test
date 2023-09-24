@@ -1,9 +1,8 @@
 {
-    "routes": [
+  "routes": [
       {
-        "src": "/api/passwordValidation",
-        "dest": "/path/to/passwordValidation.js"
+          "src": "/check-password",
+          "dest": "/scripts/password.js"
       }
-    ]
-  }
-  
+  ]
+}
