@@ -1,16 +1,16 @@
-// api/password.js (server-side script)
+// scripts/password.js (server-side script)
 
 const { VercelSecrets } = require('@vercel/secrets');
 
 module.exports = async (req, res) => {
     const secrets = new VercelSecrets();
-    const { PASSWORD } = await secrets.extract();
+    const { mdps } = await secrets.extract();
 
     try {
         const body = JSON.parse(req.body);
         const enteredPassword = body.password;
 
-        if (enteredPassword === PASSWORD) {
+        if (enteredPassword === mdps) {
             res.setHeader('Content-Type', 'application/json');
             res.status(200).json({ accessGranted: true });
         } else {
