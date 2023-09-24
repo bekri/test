@@ -13,6 +13,7 @@
         <form id="passwordForm">
             <input type="password" id="passwordInput" placeholder="Password-Protected" required>
             <button type="button" onclick="checkPassword()">Submit</button>
+            <p id="errorText" style="color: red;"></p> <!-- Error message placeholder -->
         </form>
     </div>
     <script>
@@ -31,8 +32,8 @@
                 // Password is correct, redirect to the main page
                 window.location.href = '/data.html';
             } else {
-                // Password is incorrect, show an error message
-                alert('Incorrect password. Please try again.');
+                // Password is incorrect, display an error message
+                document.getElementById("errorText").textContent = 'Incorrect password. Please try again.';
             }
         }
     </script>
