@@ -1,7 +1,7 @@
 function checkPassword() {
     //const password = "@150564220493"; // Replace with your actual password
 // Retrieve the password from the environment variable
-const storedPassword = process.env.PASSWORD || '@1234'; // Default value if not set
+const storedPassword = process.env.PASSWORD || '1234'; // Default value if not set
 
 // Rest of your code remains the same
 
