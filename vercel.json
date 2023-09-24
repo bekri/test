@@ -2,7 +2,7 @@
   "routes": [
     {
       "src": "/check-password",
-      "dest": "/scripts/password.js"
+      "dest": "/password.js"
     }
   ]
 }
