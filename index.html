@@ -1,34 +1,33 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ... (other head elements) ... -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="indexstyle.css">
     <title>Enter Password</title>
 </head>
 <body>
     <div>
         <h1>Welcome to Bekri's Site</h1>
         <p>Please enter the password to access the site:</p>
-        <form id="passwordForm" onsubmit="checkPassword(); return false;">
+        <form id="passwordForm">
             <input type="password" id="passwordInput" placeholder="Password-Protected" required>
-            <button type="submit">Submit</button>
-            <p id="errorText" style="color: red;"></p> <!-- Error message placeholder -->
+            <button type="button" onclick="checkPassword()">Submit</button>
         </form>
     </div>
-    <script>
-        // JavaScript code to check the password
-        function checkPassword() {
-            const enteredPassword = document.getElementById("passwordInput").value;
-            const correctPassword = "1234"; // Replace with your actual password
 
-            if (enteredPassword === correctPassword) {
-                // Password is correct, redirect to the main page
-                console.log('Redirecting to data.html...');
-                window.location.href = 'data.html';
+    <script>
+        function checkPassword() {
+            const password = "1234"; // Replace with your actual password
+            const passwordInput = document.getElementById("passwordInput").value;
+
+            if (passwordInput === password) {
+                // Password is correct, set authorization flag and redirect
+                localStorage.setItem('authorized', 'true');
+                window.location.href = "connect.html"; // Replace with the actual main page URL
             } else {
-                // Password is incorrect, display an error message
-                document.getElementById("errorText").textContent = 'Incorrect password. Please try again.';
+                alert("Incorrect password. Please try again.");
             }
         }
     </script>
