@@ -1,0 +1,9 @@
+{
+    "routes": [
+      {
+        "src": "/api/passwordValidation",
+        "dest": "/path/to/passwordValidation.js"
+      }
+    ]
+  }
+  

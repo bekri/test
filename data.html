@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Table Example</title>
+</head>
+<body>
+    <script>
+        // Clear authorization on page load to require password again
+        localStorage.removeItem('authorized');
+
+        // Redirect to the index.html page if not authorized
+        if (!localStorage.getItem('authorized')) {
+            // Redirect to the index.html page
+            window.location.href = 'index.html';
+        }
+    </script>
+
+    <div class="container">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Game</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Mail</th>
+                    <th>Pin</th>
+                    <th>Question</th>
+                    <th>Answer</th>
+                    <th>Key</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Steam</td>
+                    <td>XXXX</td>
+                    <td><span class="copy-text" onclick="copyToClipboard(this)">XXXX</span></td>
+                    <td>example@email.com</td>
+                    <td>1234</td>
+                    <td>Security Question 1</td>
+                    <td>Answer 1</td>
+                    <td>Key 1</td>
+                </tr>
+                <tr>
+                    <td>Origin</td>
+                    <td>YYYY</td>
+                    <td><span class="copy-text" onclick="copyToClipboard(this)">YYYY</span></td>
+                    <td>another@example.com</td>
+                    <td>5678</td>
+                    <td>Security Question 2</td>
+                    <td>Answer 2</td>
+                    <td>Key 2</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+       function copyToClipboard(element) {
+    // Get the password text from the clicked element
+    const text = element.textContent;
+
+    // Get the parent <td> element
+    const td = element.closest('td');
+
+    // Create a temporary input element to copy the text
+    const input = document.createElement('input');
+    input.setAttribute('value', text);
+    document.body.appendChild(input);
+    input.select();
+
+    try {
+        // Copy the text to the clipboard
+        document.execCommand('copy');
+        console.log('Text copied to clipboard: ' + text);
+
+        // Add a class to the parent <td> for the visual effect
+        td.classList.add('copied-cell');
+
+        // Remove the class after a short delay (for the visual effect)
+        setTimeout(() => {
+            td.classList.remove('copied-cell');
+        }, 1000);
+    } catch (err) {
+        console.error('Unable to copy text to clipboard');
+    } finally {
+        // Remove the temporary input
+        document.body.removeChild(input);
+    }
+}
+    </script>
+</body>
+</html>
