@@ -1,9 +1,6 @@
-# Allow access to the API only if the Referrer header is set to script.js
-RewriteEngine On
-RewriteCond %{HTTP_REFERER} !^$  # Allow empty referrer (direct access by script.js)
-RewriteCond %{HTTP_REFERER} !/js/script.js$ [NC]
-RewriteRule .* - [F]
-
+# Block access to the entire directory
+Order deny,allow
+Deny from all
 
 
 # Other SHit
@@ -99,8 +96,20 @@ order allow,deny
 deny from all
 </Files>
 
+AuthType Basic
+AuthName "Restricted Area"
+AuthUserFile /api/.htpasswd
+Require valid-user
+
 //Prevent directory listings
 Options All -Indexes
+
+
+AuthType Basic
+AuthName "Restricted Area"
+AuthUserFile /api/.htpasswd
+Require valid-user
+
 
 
 
