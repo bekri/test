@@ -1,6 +1,5 @@
-# Allow access to script.js only if the Referrer header is set to specific files
+# Allow access to the API only if the Referrer header is set to script.js
 RewriteEngine On
-RewriteCond %{HTTP_REFERER} !^$ # Allow empty referrer (direct access by allowed files)
-RewriteCond %{HTTP_REFERER} !/index\.html$ [NC]
-# Add additional RewriteCond lines for other files if needed
-RewriteRule ^script\.js$ - [F]
+RewriteCond %{HTTP_REFERER} !^$  # Allow empty referrer (direct access by script.js)
+RewriteCond %{HTTP_REFERER} !/js/script.js$ [NC]
+RewriteRule .* - [F]
