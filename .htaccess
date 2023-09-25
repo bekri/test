@@ -3,5 +3,5 @@ RewriteEngine On
 # Allow access to index.html in the root directory
 RewriteRule ^/?index\.html$ - [L]
 
-# Block access to .js and .css files in the root/js/ directory
-RewriteRule \.(js|css)$ - [F]
+# Block direct access to the root/js/ directory and its contents
+RewriteRule ^js/ - [F]
