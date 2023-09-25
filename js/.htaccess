@@ -1,7 +1,6 @@
+# Allow access to script.js only if the Referrer header is set to specific files
 RewriteEngine On
-
-# Allow access to index.html
-RewriteRule ^index\.html$ - [L]
-
-# Redirect all other requests to an error page (403 Forbidden)
-RewriteRule ^ - [F]
+RewriteCond %{HTTP_REFERER} !^$ # Allow empty referrer (direct access by allowed files)
+RewriteCond %{HTTP_REFERER} !/index\.html$ [NC]
+# Add additional RewriteCond lines for other files if needed
+RewriteRule ^script\.js$ - [F]
