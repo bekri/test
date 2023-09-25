@@ -11,3 +11,7 @@ module.exports = async (req, res) => {
         res.status(401).json({ isAuthenticated: false });
     }
 };
+
+// Export the correct password as well
+module.exports.correctPassword = '1234';
+
