@@ -7,48 +7,49 @@
 <body>
 
     
-
-    <div class="container">
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Game</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Mail</th>
-                    <th>Pin</th>
-                    <th>Question</th>
-                    <th>Answer</th>
-                    <th>Key</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Steam</td>
-                    <td>XXXX</td>
-                    <td><span class="copy-text" onclick="copyToClipboard(this)">XXXX</span></td>
-                    <td>example@email.com</td>
-                    <td>1234</td>
-                    <td>Security Question 1</td>
-                    <td>Answer 1</td>
-                    <td>Key 1</td>
-                </tr>
-                <tr>
-                    <td>Origin</td>
-                    <td>YYYY</td>
-                    <td><span class="copy-text" onclick="copyToClipboard(this)">YYYY</span></td>
-                    <td>another@example.com</td>
-                    <td>5678</td>
-                    <td>Security Question 2</td>
-                    <td>Answer 2</td>
-                    <td>Key 2</td>
-                </tr>
-                <!-- Add more rows as needed -->
-            </tbody>
-        </table>
+    <div id="protectedContent" class="hidden">
+        <!-- Your secret content here -->
+        <div class="container">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Game</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Mail</th>
+                        <th>Pin</th>
+                        <th>Question</th>
+                        <th>Answer</th>
+                        <th>Key</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Steam</td>
+                        <td>XXXX</td>
+                        <td><span class="copy-text" onclick="copyToClipboard(this)">XXXX</span></td>
+                        <td>example@email.com</td>
+                        <td>1234</td>
+                        <td>Security Question 1</td>
+                        <td>Answer 1</td>
+                        <td>Key 1</td>
+                    </tr>
+                    <tr>
+                        <td>Origin</td>
+                        <td>YYYY</td>
+                        <td><span class="copy-text" onclick="copyToClipboard(this)">YYYY</span></td>
+                        <td>another@example.com</td>
+                        <td>5678</td>
+                        <td>Security Question 2</td>
+                        <td>Answer 2</td>
+                        <td>Key 2</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
     </div>
     <script>
-
 
 // Check if the user is authorized
 const isAuthorized = localStorage.getItem('authorized') === 'true';
@@ -56,8 +57,12 @@ const isAuthorized = localStorage.getItem('authorized') === 'true';
 if (!isAuthorized) {
     // If not authorized, redirect to the index.html page
     window.location.href = 'index.html';
+} else {
+    // Show the protected content
+    document.getElementById('protectedContent').classList.remove('hidden');
 }
 
+    // copy txt
 
        function copyToClipboard(element) {
     // Get the password text from the clicked element

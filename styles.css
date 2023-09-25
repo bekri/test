@@ -136,3 +136,8 @@ tbody tr:hover {
         padding: 8px;
     }
 }
+
+/* Hide the content by default */
+.hidden {
+    display: none;
+}
