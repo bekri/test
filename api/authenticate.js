@@ -1,10 +1,6 @@
-// In a file named `authenticate.js` within an `api` directory
-module.exports = async (req, res) => {
+module.exports = (req, res) => {
     const { password } = req.body;
-
-    // Replace 'your_actual_password' with your actual password
-    const correctPassword = '1234';
-
+    const correctPassword = module.exports.correctPassword;
     if (password === correctPassword) {
         res.status(200).json({ isAuthenticated: true });
     } else {
@@ -12,6 +8,4 @@ module.exports = async (req, res) => {
     }
 };
 
-// Export the correct password as well
-module.exports.correctPassword = '1234';
-
+module.exports.correctPassword = '1234'; // Export the correct password as well

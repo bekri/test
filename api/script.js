@@ -1,28 +1,36 @@
-// Set the Referrer policy to 'no-referrer'
 document.referrerPolicy = 'no-referrer';
+
 function checkPassword() {
     const passwordInput = document.getElementById("passwordInput").value;
 
-    // Send a POST request to your serverless function for authentication
-    fetch("authenticate", {
+    if (!passwordInput) {
+        alert("Please enter a password.");
+        return;
+    }
+
+    fetch("/api/authenticate", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({ password: passwordInput }),
     })
-    .then((response) => response.json())
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return response.json();
+    })
     .then((data) => {
         if (data.isAuthenticated) {
-            // Password is correct, set authorization flag and redirect
-            localStorage.setItem('authorized', 'true');
-            window.location.href = "data.html"; // Redirect to the main page
+            sessionStorage.setItem('authorized', 'true');
+            window.location.href = "data.html";
         } else {
-            // Incorrect password, show an error message
             alert("Incorrect password. Please try again.");
         }
     })
     .catch((error) => {
         console.error("An error occurred:", error);
+        alert("An error occurred. Please try again later.");
     });
 }
