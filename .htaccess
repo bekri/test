@@ -89,11 +89,5 @@ order allow,deny
 deny from all
 </Files>
 
-//Prevent viewing of .htaccess file
-<Files js/script.js>
-order allow,deny
-deny from all
-</Files>
-
 //Prevent directory listings
 Options All -Indexes
