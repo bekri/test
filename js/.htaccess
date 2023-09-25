@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Allow access to index.html
+RewriteRule ^index\.html$ - [L]
+
+# Redirect all other requests to an error page (403 Forbidden)
+RewriteRule ^ - [F]
