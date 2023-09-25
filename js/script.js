@@ -1,3 +1,5 @@
+// Set the Referrer policy to 'no-referrer'
+document.referrerPolicy = 'no-referrer';
 function checkPassword() {
     const passwordInput = document.getElementById("passwordInput").value;
 
