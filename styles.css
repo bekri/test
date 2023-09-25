@@ -137,7 +137,3 @@ tbody tr:hover {
     }
 }
 
-/* Hide the content by default */
-.hidden {
-    display: none;
-}

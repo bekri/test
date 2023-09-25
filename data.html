@@ -57,12 +57,8 @@ const isAuthorized = localStorage.getItem('authorized') === 'true';
 if (!isAuthorized) {
     // If not authorized, redirect to the index.html page
     window.location.href = 'index.html';
-} else {
-    // Show the protected content
-    document.getElementById('protectedContent').classList.remove('hidden');
 }
 
-    // copy txt
 
        function copyToClipboard(element) {
     // Get the password text from the clicked element
