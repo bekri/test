@@ -84,15 +84,17 @@ RewriteCond %{HTTP_USER_AGENT} ^Xaldon\ WebSpider [OR]
 RewriteCond %{HTTP_USER_AGENT} ^Zeus
 RewriteRule ^.* - [F,L]
 
-# Block access to script.js
-RewriteRule ^js/script\.js$ - [F]
-
-
 //Prevent viewing of .htaccess file
 <Files .htaccess>
 order allow,deny
 deny from all
 </Files>
 
+
 //Prevent directory listings
 Options All -Indexes
+
+<Files "js/script.js">
+    Order Allow,Deny
+    Deny from all
+</Files>
