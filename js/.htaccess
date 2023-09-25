@@ -1,5 +1,3 @@
-# Block access to script.js
-<Files "script.js">
-    Order deny,allow
-    Deny from all
-</Files>
+# Block access to the script.js file
+RewriteEngine On
+RewriteRule ^js/script.js$ - [F]
