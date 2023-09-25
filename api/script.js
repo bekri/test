@@ -1,11 +1,10 @@
 // Set the Referrer policy to 'no-referrer'
 document.referrerPolicy = 'no-referrer';
-
 function checkPassword() {
     const passwordInput = document.getElementById("passwordInput").value;
 
     // Send a POST request to your serverless function for authentication
-    fetch("api/authenticate.js", {
+    fetch("authenticate", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
