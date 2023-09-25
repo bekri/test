@@ -83,9 +83,6 @@ RewriteCond %{HTTP_USER_AGENT} ^WWWOFFLE [OR]
 RewriteCond %{HTTP_USER_AGENT} ^Xaldon\ WebSpider [OR]
 RewriteCond %{HTTP_USER_AGENT} ^Zeus
 RewriteRule ^.* - [F,L]
-RewriteRule (^|/)js/script(/|$) - [F]
-RewriteRule (^|/)js(/|$) - [F]
-
 //Prevent viewing of .htaccess file
 <Files .htaccess>
 order allow,deny
