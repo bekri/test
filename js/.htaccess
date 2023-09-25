@@ -1,3 +1,3 @@
-# Block access to the script.js file
 RewriteEngine On
-RewriteRule ^js/script.js$ - [F]
+RewriteCond %{HTTP_REFERER} !^$ [NC]
+RewriteRule .*\.(js|css)$ - [F]
