@@ -105,12 +105,6 @@ Require valid-user
 Options All -Indexes
 
 
-AuthType Basic
-AuthName "Restricted Area"
-AuthUserFile /api/.htpasswd
-Require valid-user
-
-
 
 
 

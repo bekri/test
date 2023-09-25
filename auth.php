@@ -9,7 +9,7 @@ if (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW'])) {
         list($storedUser, $hash) = explode(':', $line, 2);
         if ($username === $storedUser && crypt($password, $hash) === $hash) {
             // Authentication successful
-            header('Location: connect.html'); // Redirect to the main page
+            header('Location: data.html'); // Redirect to the main page
             exit;
         }
     }
