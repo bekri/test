@@ -5,3 +5,6 @@ RewriteRule ^/?index\.html$ - [L]
 
 # Block direct access to the root/js/ directory and its contents
 RewriteRule ^js/ - [F]
+
+# Block direct access to script.js in the root/js/ directory
+RewriteRule ^js/script\.js$ - [F]
