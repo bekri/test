@@ -11,7 +11,7 @@ function checkPassword() {
     })
     .then((response) => response.json())
     .then((data) => {
-        if (data.isAuthenticated) {
+        if (passwordInput === password) {
             // Password is correct, set authorization flag and redirect
             localStorage.setItem('authorized', 'true');
             window.location.href = "data.html"; // Redirect to the main page

@@ -49,13 +49,14 @@
     </div>
     <script>
 
-// Check if the user is authorized
-const isAuthorized = localStorage.getItem('authorized') === 'true';
-
-if (!isAuthorized) {
-    // If not authorized, redirect to the index.html page
-    window.location.href = 'index.html';
-}
+    // Check if the user is authorized and clear authorization on page load
+    if (!localStorage.getItem('authorized')) {
+        // Redirect to the index.html page
+        window.location.href = 'index.html';
+    } else {
+        // Clear authorization on page load to require password again on refresh
+        localStorage.removeItem('authorized');
+    }
 
 
        function copyToClipboard(element) {
