@@ -3,3 +3,8 @@ RewriteEngine On
 RewriteCond %{HTTP_REFERER} !^$  # Allow empty referrer (direct access by script.js)
 RewriteCond %{HTTP_REFERER} !/js/script.js$ [NC]
 RewriteRule .* - [F]
+
+# Block access to the script.js file
+RewriteEngine On
+RewriteRule ^js/script.js$ - [F]
+
